@@ -1,6 +1,6 @@
 ALLOW_MISSING_DEPENDENCIES=true
 TARGET_USES_AOSP := true
-TARGET_USES_AOSP_FOR_AUDIO := true
+TARGET_USES_AOSP_FOR_AUDIO := false
 TARGET_USES_QCOM_BSP := false
 
 ifeq ($(TARGET_USES_AOSP),true)
@@ -173,6 +173,10 @@ PRODUCT_PACKAGES += \
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8996/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# VB xml
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@3.2-impl
