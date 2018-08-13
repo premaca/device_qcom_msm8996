@@ -64,6 +64,8 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 #TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
+# Enable System As Root even for non-A/B from P onwards
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 endif
 
 ifeq ($(ENABLE_AB), true)
@@ -181,3 +183,6 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
 
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+
+#Enable DRM plugins 64 bit compilation
+TARGET_ENABLE_MEDIADRM_64 := true
